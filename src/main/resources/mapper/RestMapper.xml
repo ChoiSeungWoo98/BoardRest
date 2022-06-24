@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.board.mapper.RestMapper">
+    <insert id="insert">
+        INSERT INTO TBL_REST (REST_NUMBER, REST_TITLE, REST_CONTENT)
+        VALUES(SEQ_REPLY.NEXTVAL, #{restContent}, #{restTitle})
+    </insert>
+
+    <select id="select" resultType="restVO">
+        SELECT REST_NUMBER, REST_TITLE, REST_CONTENT
+        FROM TBL_REST WHERE REST_NUMBER = #{restNumber}
+    </select>
+
+    <delete id="delete">
+        DELETE FROM TBL_REST WHERE REST_NUMBER = #{restNumber}
+    </delete>
+</mapper>
